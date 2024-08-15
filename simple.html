@@ -29,7 +29,7 @@
   color:white;
   font-family:cursive;
   font-weight: bolder;
-  font-size: x-large;
+  font-size: xx-large;
 }
 
 
@@ -82,62 +82,35 @@
         font-size: 50rem;
     }
 }
-* {
-  box-sizing: border-box;
-}
-.video-background {
-  background: #000;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -99;
-}
-.video-foreground,
-.video-background iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
 
-@media all and (max-width:750px) {
-  #text1{
-    font-size: 25rem;
-  }
-}
-@media (min-aspect-ratio: 16/9) {
-  .video-foreground {
-    height: 300%;
-    top: -100%;
-  }
-}
-@media (max-aspect-ratio: 16/9) {
-  .video-foreground {
-    width: 300%;
-    left: -100%;
-  }
-}
-@media all and (max-width: 600px) {
-  .vid-info {
-    width: 50%;
-    padding: 0.5rem;
-  }
-  .vid-info h1 {
-    margin-bottom: 0.2rem;
-  }
-}
-@media all and (max-width: 500px) {
-  .vid-info .acronym {
-    display: none;
-  }
-}
+body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+        }
 </style>
 <body>
-  
+  <video class="video-background" autoplay loop muted>
+    <source src="background.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 
 <div class="bg_heart">
 </div>
@@ -147,13 +120,8 @@
 <center>
 <h2 id="text1"></h2>
 </center>
+  </div>
 
-  </div>
-  <div class="video-background">
-    <div class="video-foreground">
-      <iframe src="https://www.youtube.com/embed/B8axx7a0bM8?si=vcfpxG4qXiEynfE3?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1" frameborder="0" allowfullscreen style="opacity: .9;"></iframe>
-    </div>
-  </div>
   <script>
     
 var love = setInterval(function(){
